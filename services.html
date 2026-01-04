@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengkel Online - Layanan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-car-mechanic"></i>
+                <img src="logo.png" width="60" lenght="60">
+                <span>BENGKEL ONLINE</span>
+            </div>
+            <div class="nav-menu">
+                <a href="admin.html" class="nav-link" id="adminBookingNav" style="display:none;">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>List Booking</span>
+                </a>
+                <a href="home.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="services.html" class="nav-link active">
+                    <i class="fas fa-wrench"></i>
+                    <span>Layanan</span>
+                </a>
+                <a href="history.html" class="nav-link">
+                    <i class="fas fa-history"></i>
+                    <span>Riwayat</span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Info</span>
+                </a>
+                <div class="user-menu">
+                    <button class="user-btn" onclick="toggleUserMenu()">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="currentUser">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" onclick="showProfile()">
+                            <i class="fas fa-user"></i>
+                            Profil
+                        </a>
+                        <a href="#" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+        <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Layanan Bengkel Kami</h1>
+            <p>Pilih layanan yang sesuai dengan kebutuhan kendaraan Anda</p>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Booking Service</h2>
+                <p>Isi formulir di bawah ini untuk mem booking service kendaraan Anda</p>
+            </div>
+
+            <div class="booking-form-container">
+                <form id="bookingForm" class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vehicleType">
+                                <i class="fas fa-car"></i>
+                                Jenis Kendaraan
+                            </label>
+                            <select id="vehicleType" name="vehicleType" required>
+                                <option value="">Pilih Jenis Kendaraan</option>
+                                <option value="motor">Motor</option>
+                                <option value="mobil">Mobil</option>
+                                <option value="truk">Truk</option>
+                                <option value="bus">Bus</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="licensePlate">
+                                <i class="fas fa-hashtag"></i>
+                                Plat Nomor Kendaraan
+                            </label>
+                            <input type="text" id="licensePlate" name="licensePlate" placeholder="Contoh: B 1234 XYZ" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="serviceType">
+                                <i class="fas fa-wrench"></i>
+                                Pilihan Layanan
+                            </label>
+                            <select id="serviceType" name="serviceType" required>
+                                <option value="">Pilih Layanan</option>
+                                <option value="service-rutin">Service Rutin</option>
+                                <option value="perbaikan-mesin">Perbaikan Mesin</option>
+                                <option value="ganti-oli">Ganti Oli</option>
+                                <option value="ganti-ban">Ganti Ban</option>
+                                <option value="tune-up">Tune Up</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingDate">
+                                <i class="fas fa-calendar"></i>
+                                Tanggal Booking
+                            </label>
+                            <input type="date" id="bookingDate" name="bookingDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vehicleComplaint">
+                            <i class="fas fa-exclamation-circle"></i>
+                            Keluhan Kendaraan
+                        </label>
+                        <textarea id="vehicleComplaint" name="vehicleComplaint" rows="4" placeholder="Jelaskan keluhan atau masalah yang dialami kendaraan Anda..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalNotes">
+                            <i class="fas fa-sticky-note"></i>
+                            Catatan Tambahan (Opsional)
+                        </label>
+                        <textarea id="additionalNotes" name="additionalNotes" rows="2" placeholder="Catatan tambahan untuk mekanik..."></textarea>
+                    </div>
+
+                    <button type="submit" class="booking-btn">
+                        <i class="fas fa-calendar-check"></i>
+                        BOOKING SERVICE
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengkel Online - Riwayat Service</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-car-mechanic"></i>
+                <img src="logo.png" width="60" lenght="60">
+                <span>BENGKEL ONLINE</span>
+            </div>
+            <div class="nav-menu">
+                <a href="admin.html" class="nav-link" id="adminBookingNav" style="display:none;">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>List Booking</span>
+                </a>
+                <a href="home.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="services.html" class="nav-link">
+                    <i class="fas fa-wrench"></i>
+                    <span>Layanan</span>
+                </a>
+                <a href="history.html" class="nav-link active">
+                    <i class="fas fa-history"></i>
+                    <span>Riwayat</span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Info</span>
+                </a>
+                <div class="user-menu">
+                    <button class="user-btn" onclick="toggleUserMenu()">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="currentUser">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" onclick="showProfile()">
+                            <i class="fas fa-user"></i>
+                            Profil
+                        </a>
+                        <a href="#" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Riwayat Service</h1>
+            <p>Lihat semua riwayat booking service kendaraan Anda</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="filterStatus">Filter Status:</label>
+                    <select id="filterStatus" onchange="filterHistory()">
+                        <option value="">Semua Status</option>
+                        <option value="pending">Menunggu</option>
+                        <option value="confirmed">Terkonfirmasi</option>
+                        <option value="in-progress">Dalam Proses</option>
+                        <option value="completed">Selesai</option>
+                        <option value="cancelled">Dibatalkan</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterDate">Filter Tanggal:</label>
+                    <input type="month" id="filterDate" onchange="filterHistory()">
+                </div>
+                <button class="clear-filter-btn" onclick="clearFilter()">
+                    <i class="fas fa-times"></i>
+                    Hapus Filter
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history-section">
+        <div class="container">
+            <div class="history-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalBookings">0</h3>
+                        <p>Total Booking</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="completedBookings">0</h3>
+                        <p>Selesai</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="pendingBookings">0</h3>
+                        <p>Dalam Proses</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-list" id="historyList">
+                <!-- History items will be populated by JavaScript -->
+            </div>
+
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <h3>Belum Ada Riwayat</h3>
+                <p>Anda belum memiliki riwayat booking service. Mulai booking service sekarang!</p>
+                <a href="home.html" class="btn-primary">
+                    <i class="fas fa-plus"></i>
+                    Booking Service
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Detail Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Detail Booking</h3>
+                <span class="close" onclick="closeBookingModal()">&times;</span>
+            </div>
+            <div class="modal-body" id="bookingDetail">
+                <!-- Booking details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- <section class="history-section">
+        <div class="container">
+            <h2>Riwayat Booking</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Jenis Kendaraan</th>
+                        <th>Plat</th>
+                        <th>Layanan</th>
+                        <th>Tanggal</th>
+                        <th>Keluhan</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTable"></tbody>
+            </table>
+        </div>
+    </section> -->
+
+    
+    <script src="riwayat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengkel Online - Informasi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-car-mechanic"></i>
+                <img src="logo.png" width="60" lenght="60">
+                <span>BENGKEL ONLINE</span>
+            </div>
+            <div class="nav-menu">
+                <a href="admin.html" class="nav-link" id="adminBookingNav" style="display:none;">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>List Booking</span>
+                </a>
+                <a href="home.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="services.html" class="nav-link">
+                    <i class="fas fa-wrench"></i>
+                    <span>Layanan</span>
+                </a>
+                <a href="history.html" class="nav-link">
+                    <i class="fas fa-history"></i>
+                    <span>Riwayat</span>
+                </a>
+                <a href="about.html" class="nav-link active">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Info</span>
+                </a>
+                <div class="user-menu">
+                    <button class="user-btn" onclick="toggleUserMenu()">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="currentUser">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" onclick="showProfile()">
+                            <i class="fas fa-user"></i>
+                            Profil
+                        </a>
+                        <a href="#" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Informasi Bengkel</h1>
+            <p>Kenali lebih dekat bengkel kami dan tim profesional kami</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-car-mechanic"></i>
+                        <img src="about-image.png" width="100%">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2>Tentang Bengkel Kami</h2>
+                    <p>Bengkel Online telah berdiri sejak 2008 dan telah melayani ribuan pelanggan dengan berbagai kebutuhan perawatan dan perbaikan kendaraan. Kami berkomitmen memberikan pelayanan terbaik dengan standar profesional.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Sertifikasi Profesional</h4>
+                                <p>Mekanik kami memiliki sertifikasi resmi dan pengalaman bertahun-tahun</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Peralatan Modern</h4>
+                                <p>Menggunakan peralatan dan teknologi terkini untuk diagnosis dan perbaikan</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Garansi Layanan</h4>
+                                <p>Setiap layanan mendapatkan garansi untuk kepuasan pelanggan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Informasi Kontak</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Alamat Bengkel</h3>
+                    <p>Jl. Cut Meutia No. 83<br>
+                    Margahayu, Bekasi Timur, Kota Bekasi <br>
+                    Jawa Barat 17113</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn-secondary">
+                        <i class="fas fa-external-link-alt"></i>
+                        Lihat di Google Maps
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Jam Operasional</h3>
+                    <div class="operational-hours">
+                        <div class="day-row">
+                            <span>Senin - Jumat</span>
+                            <span>08:00 - 17:00</span>
+                        </div>
+                        <div class="day-row">
+                            <span>Sabtu</span>
+                            <span>08:00 - 16:00</span>
+                        </div>
+                        <div class="day-row">
+                            <span>Minggu</span>
+                            <span>09:00 - 15:00</span>
+                        </div>
+                    </div>
+                    <div class="note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Booking di luar jam operasional bisa diatur sesuai kesepakatan</span>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Customer Service</h3>
+                    <p>Telepon: (089) 8986-6018<br>
+                    WhatsApp: 0898-9866-018<br>
+                    Email: mbh.haqi@gmail.com</p>
+                    <button class="btn-whatsapp" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        Chat WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2>Tim Kami</h2>
+            <p>Profesional berpengalaman yang siap melayani Anda</p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Muhamad Bai Haqi</h3>
+                    <p class="position">Master Mechanic</p>
+                    <p class="experience">15 tahun pengalaman</p>
+                    <div class="specialization">
+                        <span>Spesialisasi:</span>
+                        <p>Mesin diesel, transmisi otomatis</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Roisul</h3>
+                    <p class="position">Senior Mechanic</p>
+                    <p class="experience">10 tahun pengalaman</p>
+                    <div class="specialization">
+                        <span>Spesialisasi:</span>
+                        <p>Sistem kelistrikan, AC</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Hikmal</h3>
+                    <p class="position">Service Advisor</p>
+                    <p class="experience">8 tahun pengalaman</p>
+                    <div class="specialization">
+                        <span>Spesialisasi:</span>
+                        <p>Konsultasi, perencanaan service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Pertanyaan yang Sering Diajukan</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Bagaimana cara booking service?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Anda bisa booking service melalui halaman beranda dengan mengisi formulir booking. Pilih jenis kendaraan, layanan yang dibutuhkan, dan tanggal yang diinginkan.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Apakah bisa membatalkan booking?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, Anda bisa membatalkan booking minimal 24 jam sebelum jadwal service. Silakan hubungi customer service untuk pembatalan.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Bagaimana sistem garansi?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Kami memberikan garansi 30 hari untuk setiap layanan service. Jika terjadi masalah terkait layanan kami, silakan datang kembali dengan bukti service.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Apakah menerima asuransi?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, kami bekerja sama dengan beberapa perusahaan asuransi. Silakan konsultasikan dengan customer service untuk informasi lebih lanjut.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

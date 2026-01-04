@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengkel Online - Beranda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-car-mechanic"></i>
+                <img src="logo.png" width="60" lenght="60">
+                <span>BENGKEL ONLINE</span>
+            </div>
+            <div class="nav-menu">
+                <a href="admin.html" class="nav-link" id="adminBookingNav" style="display:none;">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>List Booking</span>
+                </a>
+                <a href="home.html" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="services.html" class="nav-link">
+                    <i class="fas fa-wrench"></i>
+                    <span>Layanan</span>
+                </a>
+                <a href="history.html" class="nav-link">
+                    <i class="fas fa-history"></i>
+                    <span>Riwayat</span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Info</span>
+                </a>
+                <div class="user-menu">
+                    <button class="user-btn" onclick="toggleUserMenu()">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="currentUser">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" onclick="showProfile()">
+                            <i class="fas fa-user"></i>
+                            Profil
+                        </a>
+                        <a href="#" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Selamat Datang di Bengkel Online</h1>
+            <p>Booking service kendaraan Anda dengan mudah, cepat, dan terpercaya</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>1000+</h3>
+                    <p>Pelanggan Puas</p>
+                </div>
+                <div class="stat">
+                    <h3>5000+</h3>
+                    <p>Service Diselesaikan</p>
+                </div>
+                <div class="stat">
+                    <h3>15+</h3>
+                    <p>Tahun Pengalaman</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="services-grid-detailed">
+                <!-- Service Rutin -->
+                <div class="service-detail-card">
+                    <div class="service-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h2>Service Rutin</h2>
+                        <div class="service-price">
+                            <span class="price">Rp 150.000</span>
+                            <span class="unit">Mulai</span>
+                        </div>
+                    </div>
+                    <div class="service-description">
+                        <p>Perawatan berkala untuk menjaga performa optimal kendaraan Anda. Meliputi pemeriksaan dan penggantian komponen sesuai standar pabrikan.</p>
+                    </div>
+                    <div class="service-features">
+                        <h4>Termasuk:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Ganti oli mesin</li>
+                            <li><i class="fas fa-check"></i> Ganti filter udara</li>
+                            <li><i class="fas fa-check"></i> Ganti filter oli</li>
+                            <li><i class="fas fa-check"></i> Pemeriksaan rem</li>
+                            <li><i class="fas fa-check"></i> Pemeriksaan sistem kelistrikan</li>
+                            <li><i class="fas fa-check"></i> Pemeriksaan tekanan ban</li>
+                            <li><i class="fas fa-check"></i> Top up fluida</li>
+                        </ul>
+                    </div>
+                    <div class="service-duration">
+                        <i class="fas fa-clock"></i>
+                        <span>Durasi: +- 1jam</span>
+                    </div>
+                    <button class="book-service-btn" onclick="bookService('service-rutin')">
+                        <i class="fas fa-calendar-check"></i>
+                        Booking Sekarang
+                    </button>
+                </div>
+
+                <!-- Perbaikan Mesin -->
+                <div class="service-detail-card">
+                    <div class="service-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h2>Perbaikan Mesin</h2>
+                        <div class="service-price">
+                            <span class="price">Rp 300.000</span>
+                            <span class="unit">Mulai</span>
+                        </div>
+                    </div>
+                    <div class="service-description">
+                        <p>Diagnosis dan perbaikan masalah mesin dengan teknologi modern. Tim mekanik berpengalaman siap menangani berbagai masalah mesin kendaraan.</p>
+                    </div>
+                    <div class="service-features">
+                        <h4>Layanan:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Diagnosis mesin dengan OBD scanner</li>
+                            <li><i class="fas fa-check"></i> Perbaikan sistem pembakaran</li>
+                            <li><i class="fas fa-check"></i> Perbaikan sistem pendingin</li>
+                            <li><i class="fas fa-check"></i> Perbaikan sistem kelistrikan</li>
+                            <li><i class="fas fa-check"></i> Overhaul mesin</li>
+                            <li><i class="fas fa-check"></i> Penggantian komponen mesin</li>
+                        </ul>
+                    </div>
+                    <div class="service-duration">
+                        <i class="fas fa-clock"></i>
+                        <span>Durasi: Tergantung kerusakan</span>
+                    </div>
+                    <button class="book-service-btn" onclick="bookService('perbaikan-mesin')">
+                        <i class="fas fa-calendar-check"></i>
+                        Booking Sekarang
+                    </button>
+                </div>
+
+                <!-- Ganti Oli -->
+                <div class="service-detail-card">
+                    <div class="service-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-oil-can"></i>
+                        </div>
+                        <h2>Ganti Oli</h2>
+                        <div class="service-price">
+                            <span class="price">Rp 100.000</span>
+                            <span class="unit">Mulai</span>
+                        </div>
+                    </div>
+                    <div class="service-description">
+                        <p>Penggantian oli mesin dengan berbagai pilihan merek dan grade sesuai kebutuhan kendaraan Anda. Menggunakan oli asli dan berkualitas.</p>
+                    </div>
+                    <div class="service-features">
+                        <h4>Pilihan Oli:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Oli sintetik (0W-20, 5W-30, 5W-40)</li>
+                            <li><i class="fas fa-check"></i> Oli semi-sintetik (10W-30, 10W-40)</li>
+                            <li><i class="fas fa-check"></i> Oli mineral (20W-50)</li>
+                            <li><i class="fas fa-check"></i> Oli motor diesel</li>
+                            <li><i class="fas fa-check"></i> Ganti filter oli</li>
+                            <li><i class="fas fa-check"></i> Pemeriksaan kebocoran</li>
+                        </ul>
+                    </div>
+                    <div class="service-duration">
+                        <i class="fas fa-clock"></i>
+                        <span>Durasi: 30-45 menit</span>
+                    </div>
+                    <button class="book-service-btn" onclick="bookService('ganti-oli')">
+                        <i class="fas fa-calendar-check"></i>
+                        Booking Sekarang
+                    </button>
+                </div>
+
+                <!-- Ganti Ban -->
+                <div class="service-detail-card">
+                    <div class="service-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <h2>Ganti Ban</h2>
+                        <div class="service-price">
+                            <span class="price">Rp 200.000</span>
+                            <span class="unit">Mulai</span>
+                        </div>
+                    </div>
+                    <div class="service-description">
+                        <p>Peremajaan ban dengan berbagai pilihan merk ternama. Melayani penggantian ban mobil, motor, dan kendaraan komersial.</p>
+                    </div>
+                    <div class="service-features">
+                        <h4>Merk Tersedia:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Bridgestone</li>
+                            <li><i class="fas fa-check"></i> Michelin</li>
+                            <li><i class="fas fa-check"></i> Goodyear</li>
+                            <li><i class="fas fa-check"></i> Continental</li>
+                            <li><i class="fas fa-check"></i> Pirelli</li>
+                            <li><i class="fas fa-check"></i> Balancing dan spooring</li>
+                        </ul>
+                    </div>
+                    <div class="service-duration">
+                        <i class="fas fa-clock"></i>
+                        <span>Durasi: 1-2 jam</span>
+                    </div>
+                    <button class="book-service-btn" onclick="bookService('ganti-ban')">
+                        <i class="fas fa-calendar-check"></i>
+                        Booking Sekarang
+                    </button>
+                </div>
+
+                <!-- Tune Up -->
+                <div class="service-detail-card">
+                    <div class="service-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h2>Tune Up</h2>
+                        <div class="service-price">
+                            <span class="price">Rp 250.000</span>
+                            <span class="unit">Mulai</span>
+                        </div>
+                    </div>
+                    <div class="service-description">
+                        <p>Optimasi performa kendaraan dengan penyetelan mesin, sistem pembakaran, dan komponen pendukung lainnya untuk performa maksimal.</p>
+                    </div>
+                    <div class="service-features">
+                        <h4>Termasuk:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Penyetelan katup</li>
+                            <li><i class="fas fa-check"></i> Penyetelan karburator/EFI</li>
+                            <li><i class="fas fa-check"></i> Penggantian busi</li>
+                            <li><i class="fas fa-check"></i> Pembersihan throttle body</li>
+                            <li><i class="fas fa-check"></i> Pemeriksaan sistem bahan bakar</li>
+                            <li><i class="fas fa-check"></i> Test drive</li>
+                        </ul>
+                    </div>
+                    <div class="service-duration">
+                        <i class="fas fa-clock"></i>
+                        <span>Durasi: 2-3 jam</span>
+                    </div>
+                    <button class="book-service-btn" onclick="bookService('tune-up')">
+                        <i class="fas fa-calendar-check"></i>
+                        Booking Sekarang
+                    </button>
+                </div>
+
+                <!-- AC Service -->
+                <div class="service-detail-card">
+                    <div class="service-header">
+                        <div class="service-icon-large">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h2>Service AC</h2>
+                        <div class="service-price">
+                            <span class="price">Rp 180.000</span>
+                            <span class="unit">Mulai</span>
+                        </div>
+                    </div>
+                    <div class="service-description">
+                        <p>Perawatan dan perbaikan sistem AC kendaraan untuk kenyamanan berkendara. Menggunakan refrigeran berkualitas dan peralatan modern.</p>
+                    </div>
+                    <div class="service-features">
+                        <h4>Termasuk:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Isi ulang freon</li>
+                            <li><i class="fas fa-check"></i> Pemeriksaan kebocoran</li>
+                            <li><i class="fas fa-check"></i> Pembersihan evaporator</li>
+                            <li><i class="fas fa-check"></i> Pemeriksaan kompresor</li>
+                            <li><i class="fas fa-check"></i> Penggantian filter kabin</li>
+                            <li><i class="fas fa-check"></i> Test performa AC</li>
+                        </ul>
+                    </div>
+                    <div class="service-duration">
+                        <i class="fas fa-clock"></i>
+                        <span>Durasi: 1-2 jam</span>
+                    </div>
+                    <button class="book-service-btn" onclick="bookService('service-ac')">
+                        <i class="fas fa-calendar-check"></i>
+                        Booking Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Services -->
+    <section class="quick-services">
+        <div class="container">
+            <h2>Layanan Cepat</h2>
+            <div class="services-grid">
+                <div class="service-card" >
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Service Rutin</h3>
+                    <p>Perawatan berkala untuk menjaga performa kendaraan</p>
+                </div>
+                <div class="service-card" >
+                    <div class="service-icon">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h3>Ganti Oli</h3>
+                    <p>Penggantian oli mesin dengan oli berkualitas</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <h3>Ganti Ban</h3>
+                    <p>Peremajaan ban dengan berbagai pilihan merk</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Perbaikan Mesin</h3>
+                    <p>Diagnosis dan perbaikan masalah mesin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
